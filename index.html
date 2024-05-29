@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,61 +6,54 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-
 <body>
-    <article class="page-wrapper">
-        <h1>COLORANDOM</h1>
-
-        <article class="box-wrapper">
-
-            <section class="outer-wrapper-box1">
-                <section class="inner-wrapper box1 box-styling">
-                    <div class="box color-box1"></div>
-                    <p>Some hex code</p>
-                </section>
-            </section>
-            <section class="outer-wrapper-box2">
-                <section class="inner-wrapper box2 box-styling">
-                    <div class="box color-box2"></div>
-                    <p>Some hex code</p>
-                </section>
-            </section>
-            <section class="outer-wrapper-box3">
-                <section class="inner-wrapper box3 box-styling">
-                    <div class="box color-box3"></div>
-                    <p>Some hex code</p>
-                </section> 
-            </section>
-            <section class="outer-wrapper-box4">
-                <section class="inner-wrapper box4 box-styling">
-                    <div class="box color-box4"></div>
-                    <p>Some hex code</p>
-                </section>
-            </section>
-            <section class="outer-wrapper-box5">
-                <section class="inner-wrapper box5 box-styling">
-                    <div class="box color-box5"></div>
-                    <p>Some hex code</p>
-                </section>
-            </section>
-        </article>
-        <section class=“button-outer-wrapper”>
-            <section class="button-inner-wrapper button">
-                <button class=”new-palette”>New Palette</button>
-                <button class=”save-palette”>Save Palette</button>
-            </section>
-        </section>
-
-        <section class=“outer-wrapper”>
-            <section class=“inner-wrapper box-styling”>
-                <div class=“color-box”></div>
-                <h3 class=“hex-code-lable”>(whatever code for display)</h3>
-            </section>
-        </section>
-    </article>
+  <article class="page-wrap"> <!-- We keep the page and boxes wrapper for styling purposes; display: flex -->
+                                 <!-- and flex direction cloumn on the page wrap -->
+    <h1>COLORANDOM</h1>
+    
+    <article class="boxes-wrap"> <!-- <display: flex;> and <flex-direction: row;> on the box-wrap -->
+      
+      <section class="box-wrap box1-wrap">           <!-- we still keep an individual wrap on each box; two classes -->
+        <div class="color-box1 box" id="box1"></div> <!-- just to give us flexibility with targeting, we can add more -->
+        <h4 class="box1-label">#EA9999</h4>       <!-- if needed. For styling we tgt the box-wrap to keep the color -->
+      </section>                                     <!-- box and the hex code aligned; we tgt box for the border; -->
+                                                     <!-- then we tgt the h4 tag to style the text and tgt box#-label -->
+      <section class="box-wrap box2-wrap">           <!-- for the JS functionality. -->
+        <div class="color-box2 box" id="box2"></div>
+        <h4 class="box2-label">#FACB9C</h4>
+      </section>
+      
+      <section class="box-wrap box3-wrap">
+        <div class="color-box3 box" id="box3"></div>
+        <h4 class="box3-label">#FFE59A</h4>
+      </section>
+      
+      <section class="box-wrap box4-wrap">
+        <div class="color-box4 box" id="box4"></div>
+        <h4 class="box4-label">#B6D7A8</h4>
+      </section>
+      
+      <section class="box-wrap box5-wrap">
+        <div class="color-box5 box" id="box5"></div>
+        <h4 class="box5-label">#A4C4CA</h4>
+      </section>
+      
+     </article>
+                                                            <!-- I think we should keep one wrap for the buttons to -->
+       <section class="buttons-wrap">                    <!-- style them and we can tgt them idividually for -->
+         <button class="new-palette main-button">New Palette</button>   <!-- funcitionality. -->
+         <button class="save-palette main-button">Save Palette</button> 
+       </section>
+    
+     <section class="saved-palettes-outer-wrap hidden"> <!-- we will need two wraps here becasue until someone saves a -->
+       <aside class="saved-palettes-inner-wrap">        <!-- palette the side section will be hidden on load. we could -->
+         <!-- Need To Code -->                          <!-- potentially add a arrow to hide and unhide just in case -->
+       </aside>                                         <!-- you want to close that section but we'll cross that -->
+     </section>                                         <!-- bridge when we come to it lol. -->
+    
+  </article>      
+  <script src="main.js"></script>                           
 </body>
 
 
 </html>
-
-<!-- test -->
