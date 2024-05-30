@@ -3,12 +3,18 @@ var hexCodeBuildArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "A", 
 var colorHexArray = [];
 var randomHex = [];
 var stringOutput = "";
+var padLock = document.querySelector('img')
+
+var unlockedImg = document.querySelector('.unlocked')
+var lockedImg = document.querySelector('.locked')
 /*----------------------------------------BUTTONS-----------------------------------------*/
 var newPaletteBtn = document.querySelector('.new-palette')
 var savePaletteBtn = document.querySelector('.save-palette')
+var toLockBox = document.querySelector('.box')
 /*----------------------------------------EVENT LISTENERS-----------------------------------------*/
 newPaletteBtn.addEventListener('click', newPalette);
 savePaletteBtn.addEventListener('click', savePalette);
+toLockBox.addEventListener('click', lockBoxColor);
 /*----------------------------------------FUNCTIONS-----------------------------------------*/
 
 function getRandomIndex(array) {
@@ -58,7 +64,29 @@ function newPalette() {
     return colorHexArray;
 }
 
+
+
 // Simple test function, make sure it's working.
 function savePalette() {
     console.log("saved palette selected");
 }
+
+// unlock icon visiable when the page loads. 
+// locked icon visiable when user clicks on the icons.
+// event listener for the icons
+
+function lockBoxColor () {
+    console.log('before')
+    if (lockedImg.classList.contains('hidden')) {
+        // console.log(event)
+        lockedImg.classList.remove('hidden');
+        unlockedImg.classList.add('hidden');
+        console.log('after first if')
+    } else if (unlockedImg.classList.contains('hidden')) {
+        lockedImg.classList.add('hidden');
+        unlockedImg.classList.remove('hidden');
+        console.log('after second if')
+    };
+
+};
+
