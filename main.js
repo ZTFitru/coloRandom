@@ -1,13 +1,15 @@
 /*----------------------------------------VARIABLES-----------------------------------------*/
 var hexCodeBuildArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F"];
-var colorHexArray = [];
+var colorHexArray = ["EA9999", "FACB9C", "FFE59A", "B6D7A8", "A4C4CA"];
 var randomHex = [];
 var stringOutput = "";
 var padLock = document.querySelector('img')
 var boxLocks = [];
-
-var unlockedImg = document.querySelector('.unlocked')
-var lockedImg = document.querySelector('.locked')
+var savedPalettes = [];
+var paletteDelete = [];
+var unlockedImg = document.querySelector('.unlocked');
+var lockedImg = document.querySelector('.locked');
+var savedPalettesSection = document.querySelector('saved-palettes-area');
 /*----------------------------------------BUTTONS-----------------------------------------*/
 var newPaletteBtn = document.querySelector('.new-palette')
 var savePaletteBtn = document.querySelector('.save-palette')
@@ -33,7 +35,6 @@ function onLoad() {
 onLoad();
 
 function newPalette() {
-    colorHexArray = [];
     // Loops five times, to get five colors for the boxes.
     for (var j = 0; j < 5; j++) {
         {
@@ -52,7 +53,7 @@ function newPalette() {
                 randomHex = [];
 
                 // Push the string output to colorHexArray, where the GROUP of hex codes will be stored, as our palette.
-                colorHexArray.push(stringOutput);
+                colorHexArray[j] = stringOutput;
 
                 // Choose the appropriate box to get the text/color of, using interpolation to directly get the right box. j+1 = our box number, so use that.
 
@@ -82,9 +83,54 @@ function newPalette() {
 
 // Simple test function, make sure it's working.
 function savePalette() {
-    console.log("saved palette selected");
+    console.log("save palette selected");
+    savedPalettes.push(JSON.parse(JSON.stringify(colorHexArray)));
+    console.log(savedPalettes);
+    displayPalettes();
 }
 
+function displayPalettes() {
+    var savedPalettesSection = document.querySelector('.saved-palettes-area');
+
+    savedPalettesSection.innerHTML = '';
+
+    for (i = 0; i < savedPalettes.length; i++) {
+
+        savedPalettesSection.innerHTML += `<article class = "miniboxes-wrap" id = "palette${i}"> </article>`;
+        var miniboxPaletteSection = document.querySelector(`#palette${i}`);
+        for (var j = 0; j < 5; j++) {
+            miniboxPaletteSection.innerHTML +=
+                `<section class="minibox-wrap">
+                <div class="mini-color-box-${i}-${j} minibox icon">
+                </div>
+                </section>`;
+            var tempMiniColorBox = document.querySelector(`.mini-color-box-${i}-${j}`);
+            tempMiniColorBox.style['background-color'] = `#${savedPalettes[i][j]}`;
+
+        }
+        miniboxPaletteSection.innerHTML += `<img src="assets/delete.png" class="mini-palette-delete" id = "delete-${i}">`;
+
+    }
+    for (i = 0; i < savedPalettes.length; i++) {
+
+        paletteDelete[i] = document.querySelector(`#delete-${i}`);
+        paletteDelete[i].paletteIndex = i;
+
+        paletteDelete[i].addEventListener('click', paletteRemove);
+
+    }
+    console.log(paletteDelete)
+
+}
+
+function paletteRemove() {
+    console.log(this.paletteIndex);
+    var paletteInd = this.paletteIndex;
+    console.log(paletteInd)
+    console.log(savedPalettes);
+    savedPalettes.splice(paletteInd, 1);
+    displayPalettes();
+}
 
 function lockBoxColor() {
     console.log('before')
