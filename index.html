@@ -14,27 +14,43 @@
     <article class="boxes-wrap"> <!-- <display: flex;> and <flex-direction: row;> on the box-wrap -->
       
       <section class="box-wrap box1-wrap">           <!-- we still keep an individual wrap on each box; two classes -->
-        <div class="color-box1 box" id="box1"></div> <!-- just to give us flexibility with targeting, we can add more -->
-        <h4 class="box1-label">#EA9999</h4>       <!-- if needed. For styling we tgt the box-wrap to keep the color -->
-      </section>                                     <!-- box and the hex code aligned; we tgt box for the border; -->
+        <div class="color-box1 box icon" id="box1">
+            <img src="unlocked.png" class="unlocked lock-icon" alt="">
+            <img src="locked.png" class="locked lock-icon hidden" alt="">
+        </div> <!-- just to give us flexibility with targeting, we can add more -->
+        <h4 class="box1-label">#EA9999</h4>
+                                                       <!-- if needed. For styling we tgt the box-wrap to keep the color -->
+      </section>                                      <!-- box and the hex code aligned; we tgt box for the border; -->
                                                      <!-- then we tgt the h4 tag to style the text and tgt box#-label -->
       <section class="box-wrap box2-wrap">           <!-- for the JS functionality. -->
-        <div class="color-box2 box" id="box2"></div>
+        <div class="color-box2 box icon" id="box2">
+            <img src="unlocked.png" class="unlocked lock-icon" alt="">
+            <img src="locked.png" class="locked lock-icon hidden" alt="">  <!-- the img src will change once we have an asset folder is created -->
+        </div>
         <h4 class="box2-label">#FACB9C</h4>
       </section>
       
       <section class="box-wrap box3-wrap">
-        <div class="color-box3 box" id="box3"></div>
+        <div class="color-box3 box icon" id="box3">
+            <img src="unlocked.png" class="unlocked lock-icon" alt="">
+            <img src="locked.png" class="locked lock-icon hidden" alt="">
+        </div>
         <h4 class="box3-label">#FFE59A</h4>
       </section>
       
       <section class="box-wrap box4-wrap">
-        <div class="color-box4 box" id="box4"></div>
+        <div class="color-box4 box icon" id="box4">
+            <img src="unlocked.png" class="unlocked lock-icon" alt="">
+            <img src="locked.png" class="locked lock-icon hidden" alt="">
+        </div>
         <h4 class="box4-label">#B6D7A8</h4>
       </section>
       
       <section class="box-wrap box5-wrap">
-        <div class="color-box5 box" id="box5"></div>
+        <div class="color-box5 box icon" id="box5">
+            <img src="unlocked.png" class="unlocked lock-icon" alt="">
+            <img src="locked.png" class="locked lock-icon hidden" alt="">
+        </div>
         <h4 class="box5-label">#A4C4CA</h4>
       </section>
       
@@ -57,3 +73,5 @@
 
 
 </html>
+
+
