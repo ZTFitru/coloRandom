@@ -68,6 +68,7 @@ h1{
   border: 4px solid black;
   justify-content: space-evenly;
   font-family: "poppins", sans-serif;
+  cursor: pointer;
 }
 
 h4 {
@@ -110,4 +111,22 @@ h4 {
 
 .color-box5 {
   background-color: #A4C4CA;
+}
+
+
+/*-------img------*/
+
+/* .lock-icon {} */
+
+img {
+  width: 20%;
+  height: 20%;
+  margin: .3em;
+}
+
+.icon {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  align-items: flex-end;
 }
